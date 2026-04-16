@@ -6,10 +6,9 @@ Aplicativo mobile de gerenciamento de finanças pessoais desenvolvido com React 
 
 ## 👨‍💻 Integrante
 
-| Nome |
-| Joao Kelvin B Novais / Matricula : 01826654 |
-|Componentes Desenvolvidos |
-| Login, Cadastro, Dashboard, Adicionar Transação, Lista de Transações, Perfil, Navegação, Integração Supabase |
+| Nome | Componentes Desenvolvidos |
+|------|--------------------------|
+| Joao Kelvin B Novais / Matricula 01826654 | Login, Cadastro, Dashboard, Adicionar Transação, Lista de Transações, Perfil, Navegação, Integração Supabase |
 
 ---
 
