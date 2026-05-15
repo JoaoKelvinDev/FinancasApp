@@ -49,6 +49,34 @@ Aplicativo mobile de gerenciamento de finanças pessoais desenvolvido com React 
 
 ---
 
+## 📸 Preview das Telas
+
+### 🔑 Login
+![Tela de Login](./PrintsTelas/TelaDeLogin.jpeg)
+
+### 📝 Cadastro
+![Tela de Cadastro](./PrintsTelas/TelaDeCadastro.jpeg)
+
+### 📊 Dashboard (Inicial)
+![Tela Inicial](./PrintsTelas/TelaInicial.jpeg)
+
+### 💰 Adicionar Receita
+![Tela de Receita](./PrintsTelas/TelaDeReceita.jpeg)
+
+### 💸 Adicionar Gasto
+![Tela de Gastos](./PrintsTelas/TelaDeGastos.jpeg)
+
+### 📋 Transações
+![Transações](./PrintsTelas/Transaçoes.jpeg)
+
+### 📱 Todas as Transações
+![Todas as Transações](./PrintsTelas/TodasAsTransaçoes.jpeg)
+
+### 👤 Perfil
+![Tela de Perfil](./PrintsTelas/TelaDePerfil.jpeg)
+
+---
+
 ## 🚀 Como Instalar e Rodar
 
 ### Pré-requisitos
