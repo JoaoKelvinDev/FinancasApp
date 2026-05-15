@@ -51,29 +51,17 @@ Aplicativo mobile de gerenciamento de finanças pessoais desenvolvido com React 
 
 ## 📸 Preview das Telas
 
-### 🔑 Login
-![Tela de Login](./PrintsTelas/TelaDeLogin.jpeg)
+| Login | Cadastro | Dashboard |
+|-------|----------|-----------|
+| <img src="./PrintsTelas/TelaDeLogin.jpeg" width="200"/> | <img src="./PrintsTelas/TelaDeCadastro.jpeg" width="200"/> | <img src="./PrintsTelas/TelaInicial.jpeg" width="200"/> |
 
-### 📝 Cadastro
-![Tela de Cadastro](./PrintsTelas/TelaDeCadastro.jpeg)
+| Adicionar Receita | Adicionar Gasto | Transações |
+|------------------|-----------------|-----------|
+| <img src="./PrintsTelas/TelaDeReceita.jpeg" width="200"/> | <img src="./PrintsTelas/TelaDeGastos.jpeg" width="200"/> | <img src="./PrintsTelas/Transaçoes.jpeg" width="200"/> |
 
-### 📊 Dashboard (Inicial)
-![Tela Inicial](./PrintsTelas/TelaInicial.jpeg)
-
-### 💰 Adicionar Receita
-![Tela de Receita](./PrintsTelas/TelaDeReceita.jpeg)
-
-### 💸 Adicionar Gasto
-![Tela de Gastos](./PrintsTelas/TelaDeGastos.jpeg)
-
-### 📋 Transações
-![Transações](./PrintsTelas/Transaçoes.jpeg)
-
-### 📱 Todas as Transações
-![Todas as Transações](./PrintsTelas/TodasAsTransaçoes.jpeg)
-
-### 👤 Perfil
-![Tela de Perfil](./PrintsTelas/TelaDePerfil.jpeg)
+| Todas as Transações | Perfil |
+|-------------------|--------|
+| <img src="./PrintsTelas/TodasAsTransaçoes.jpeg" width="200"/> | <img src="./PrintsTelas/TelaDePerfil.jpeg" width="200"/> |
 
 ---
 
