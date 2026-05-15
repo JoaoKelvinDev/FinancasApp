@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+// mostrando resumo do mês atual e lista de transações recentes
 export default function DashboardScreen({ navigation }) {
   const [transacoes, setTransacoes] = useState([])
   const [carregando, setCarregando] = useState(true)
@@ -17,7 +17,7 @@ export default function DashboardScreen({ navigation }) {
   const [saldo, setSaldo] = useState(0)
   const [totalReceitas, setTotalReceitas] = useState(0)
   const [totalGastos, setTotalGastos] = useState(0)
-
+// useEffect para carregar os dados do dashboard quando a tela for focada e toda vez que voltar pra ela
   useEffect(() => {
     carregarDados()
 
@@ -34,13 +34,13 @@ export default function DashboardScreen({ navigation }) {
     const nome = user?.user_metadata?.nome_completo || user?.email || 'Usuário'
     setNomeUsuario(nome.split(' ')[0]) // só o primeiro nome
 
-    // Pega as transações do mês atual
+    // Pega as transações do mês atual e calcula saldo, receitas e gastos
     const hoje = new Date()
     const primeiroDia = new Date(hoje.getFullYear(), hoje.getMonth(), 1)
       .toISOString().split('T')[0]
     const ultimoDia = new Date(hoje.getFullYear(), hoje.getMonth() + 1, 0)
       .toISOString().split('T')[0]
-
+// consulta as transações do mês atual, ordenando da mais recente para a mais antiga
     const { data, error } = await supabase
       .from('transacoes')
       .select('*')
@@ -51,7 +51,7 @@ export default function DashboardScreen({ navigation }) {
     if (!error && data) {
       setTransacoes(data)
 
-      // Calcula saldo, receitas e gastos
+      // calcula o total de receitas e gastos para mostrar no card de saldo
       let receitas = 0
       let gastos = 0
       data.forEach((t) => {
@@ -74,7 +74,7 @@ export default function DashboardScreen({ navigation }) {
     const [ano, mes, dia] = dataStr.split('-')
     return `${dia}/${mes}`
   }
-
+// renderiza cada transação na lista, mostrando ícone, descrição, categoria, data e valor formatado
   function renderTransacao({ item }) {
     const isReceita = item.tipo === 'receita'
     return (

@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+// Tela de perfil do usuário, mostrando informações pessoais e resumo geral das finanças
 export default function PerfilScreen({ navigation }) {
   const [usuario, setUsuario] = useState(null)
   const [carregando, setCarregando] = useState(true)
@@ -21,7 +21,7 @@ export default function PerfilScreen({ navigation }) {
   useEffect(() => {
     carregarPerfil()
   }, [])
-
+// Função para carregar os dados do perfil e resumo geral das transações
   async function carregarPerfil() {
     setCarregando(true)
 
@@ -61,7 +61,7 @@ export default function PerfilScreen({ navigation }) {
       },
     ])
   }
-
+// Formata um valor numérico para o formato de moeda brasileira
   function formatarValor(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }
@@ -77,7 +77,7 @@ export default function PerfilScreen({ navigation }) {
       </View>
     )
   }
-
+// Extrai nome, email, data de criação do usuário e calcula saldo total a partir das receitas e gastos
   const nome = usuario?.user_metadata?.nome_completo || 'Usuário'
   const email = usuario?.email || ''
   const membroDesde = formatarData(usuario?.created_at)

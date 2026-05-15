@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+// UseState para controlar os estados do nome, email, senha e confirmar senha, quando clico em cadastrar
 export default function CadastroScreen({ navigation }) {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
@@ -19,6 +19,7 @@ export default function CadastroScreen({ navigation }) {
   const [confirmarSenha, setConfirmarSenha] = useState('')
   const [carregando, setCarregando] = useState(false)
 
+  // funçao para validar se os campos foram preenchidos
   async function handleCadastro() {
     if (!nome || !email || !senha || !confirmarSenha) {
       Alert.alert('Atenção', 'Preencha todos os campos!')
@@ -36,17 +37,17 @@ export default function CadastroScreen({ navigation }) {
     }
 
     setCarregando(true)
-
+// Chama a função de cadastro do Supabase, passando nome, email e senha
     const { error } = await supabase.auth.signUp({
       email,
       password: senha,
       options: {
-        data: { nome_completo: nome }, // salva o nome no perfil
+        data: { nome_completo: nome }, 
       },
     })
 
     setCarregando(false)
-
+// caso contrário, exibe um alerta de erro
     if (error) {
       Alert.alert('Erro ao cadastrar', error.message)
     } else {

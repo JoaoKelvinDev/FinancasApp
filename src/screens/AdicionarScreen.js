@@ -10,10 +10,10 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+// Categorias pré-definidas para gastos e receitas
 const CATEGORIAS_GASTO = ['Alimentação', 'Transporte', 'Moradia', 'Saúde', 'Lazer', 'Educação', 'Outros']
 const CATEGORIAS_RECEITA = ['Salário', 'Freelance', 'Investimentos', 'Presente', 'Outros']
-
+// Tela para adicionar nova transação, seja gasto ou receita
 export default function AdicionarScreen({ navigation, route }) {
   const tipoInicial = route?.params?.tipo || 'gasto'
   const [tipo, setTipo] = useState(tipoInicial)
@@ -23,6 +23,7 @@ export default function AdicionarScreen({ navigation, route }) {
   const [data, setData] = useState(new Date().toISOString().split('T')[0])
   const [carregando, setCarregando] = useState(false)
 
+  // Define as categorias disponíveis com base no tipo selecionado (gasto ou receita)
   const categorias = tipo === 'gasto' ? CATEGORIAS_GASTO : CATEGORIAS_RECEITA
 
   async function handleSalvar() {
@@ -40,7 +41,7 @@ export default function AdicionarScreen({ navigation, route }) {
     setCarregando(true)
 
     const { data: { user } } = await supabase.auth.getUser()
-
+// Insere a nova transação no banco de dados, associando ao usuário logado
     const { error } = await supabase.from('transacoes').insert({
       user_id: user.id,
       tipo,
@@ -51,7 +52,6 @@ export default function AdicionarScreen({ navigation, route }) {
     })
 
     setCarregando(false)
-
     if (error) {
       Alert.alert('Erro', 'Não foi possível salvar a transação.')
     } else {
@@ -60,7 +60,6 @@ export default function AdicionarScreen({ navigation, route }) {
       ])
     }
   }
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
 

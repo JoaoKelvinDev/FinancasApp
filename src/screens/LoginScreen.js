@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   View,
-  Text,
+  Text,     
   TextInput,
   TouchableOpacity,
   Image,
@@ -10,12 +10,13 @@ import {
   Alert,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+ // UseState para controlar os estados do email e senha, quando clico em entrar 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [carregando, setCarregando] = useState(false)
 
+  // funçao para validar se os campos foram preenchidos 
   async function handleLogin() {
     if (!email || !senha) {
       Alert.alert('Atenção', 'Preencha o e-mail e a senha!')
@@ -23,18 +24,17 @@ export default function LoginScreen({ navigation }) {
     }
 
     setCarregando(true)
-
+//  e chama a funçao supabase se for bem sucedido
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password: senha,
     })
 
     setCarregando(false)
-
+// caso contrário, exibe um alerta de erro
     if (error) {
       Alert.alert('Erro ao entrar', error.message)
     }
-    // Se login OK, o AppNavigator redireciona automaticamente
   }
 
   return (

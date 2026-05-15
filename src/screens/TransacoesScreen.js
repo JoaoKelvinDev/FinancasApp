@@ -9,17 +9,17 @@ import {
   Alert,
 } from 'react-native'
 import { supabase } from '../../service/supabase'
-
+// Tela que mostra a lista completa de transações, com opção de excluir e botão para
 export default function TransacoesScreen({ navigation }) {
   const [transacoes, setTransacoes] = useState([])
   const [carregando, setCarregando] = useState(true)
-
+// useEffect para carregar as transações quando a tela for focada e toda vez que voltar pra ela
   useEffect(() => {
     carregarTransacoes()
     const unsubscribe = navigation.addListener('focus', carregarTransacoes)
     return unsubscribe
   }, [navigation])
-
+// Função para carregar as transações do banco de dados, ordenando da mais recente para a mais antiga
   async function carregarTransacoes() {
     setCarregando(true)
     const { data, error } = await supabase
@@ -30,7 +30,7 @@ export default function TransacoesScreen({ navigation }) {
     if (!error) setTransacoes(data)
     setCarregando(false)
   }
-
+// Função para excluir uma transação, mostrando um alerta de confirmação antes
   async function handleExcluir(id) {
     Alert.alert('Excluir', 'Tem certeza que deseja excluir esta transação?', [
       { text: 'Cancelar', style: 'cancel' },
@@ -45,16 +45,16 @@ export default function TransacoesScreen({ navigation }) {
       },
     ])
   }
-
+// Função para formatar o valor como moeda brasileira
   function formatarValor(valor) {
     return Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }
-
+// Função para formatar a data no formato DD/MM/AAAA
   function formatarData(dataStr) {
     const [ano, mes, dia] = dataStr.split('-')
     return `${dia}/${mes}/${ano}`
   }
-
+// Função para renderizar cada item da lista de transações, mostrando ícone, descrição, categoria, data e valor formatado.
   function renderTransacao({ item }) {
     const isReceita = item.tipo === 'receita'
     return (
